@@ -1,6 +1,8 @@
 public class dataStructures {
     public static void main(String[] args){
-        System.out.println("Hello world!!");
-        System.out.println("another hello statement");
+         String[] words = {"hello", " ", "my name is ", "Slim Shady"};
+         //memory for 4 * 64 bytes is allocated for the 4 items we created in words[]
+        
+
     }
 }
