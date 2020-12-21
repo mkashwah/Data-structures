@@ -1,5 +1,5 @@
 import java.util.Arrays;
-public class dynamicArrays {
+public class dynamicArrays extends reverseString {
     private int length;
     private int[] data = {};
 
@@ -11,6 +11,13 @@ public class dynamicArrays {
 
 
     public static void main(String[] args){
+        //Testing the string reverser
+        String sentence = new String[];
+        sentence = "Hello World!";
+        System.out.println(reverseString(sentence));
+
+
+
         dynamicArrays arr1 = new dynamicArrays();
         arr1.length = 1;
         int dat[] = new int[2];
