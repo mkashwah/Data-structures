@@ -12,8 +12,8 @@ public class dynamicArrays extends reverseString {
 
     public static void main(String[] args){
         //Testing the string reverser
-        String sentence = new String[];
-        sentence = "Hello World!";
+
+        String sentence = "Hello World!";
         System.out.println(reverseString(sentence));
 
 
@@ -24,8 +24,8 @@ public class dynamicArrays extends reverseString {
         dat[0] = 10;
 //        arr1.data[0] = 5;
 //        arr1.data[1] = 10;
-        System.out.println(arr1.data.length);
-        System.out.println(dat.length);
+//        System.out.println(arr1.data.length);
+//        System.out.println(dat.length);
 
 
     }
