@@ -53,7 +53,6 @@ public class dynamicArrays extends reverseString {
         for(int i = 0; i < this.getLen()-1; i++){
             temp[i]= data[i];
         }
-
         //print statement for the popped item
         System.out.println("item of index " + (this.getLen()-1) +" = " + get(this.getLen()-1) + " was popped");
 
@@ -63,6 +62,37 @@ public class dynamicArrays extends reverseString {
         //decrease length
         len--;
     }
+
+    /** This function is used to delete an element of a dynamic array
+     * @param index the index of the deleted array element
+     * @return Nothing
+     */
+    public void delete (int index){
+        //create a new temp array with length -1 than data
+        int[] temp = new int[this.getLen()-1];
+
+        //create 2 loops that copy the array data[] and doesn't copy the data[index] into temp[]
+        for(int i = 0; i < index; i++){
+            temp[i] = data[i];
+        }
+        for(int i = index + 1 ; i < this.getLen()-1; i++){
+            temp[i] = data[i];
+        }
+
+        //reference data to temp
+        data = temp;
+
+        //decrease length
+        len--;
+
+    }
+
+
+    /**
+     *
+     * @return
+     */
+
 
     //return length function
     public int getLen() {
@@ -92,6 +122,17 @@ public class dynamicArrays extends reverseString {
         arr1.pop();
         arr1.pop();
         System.out.println("length of the array = " + arr1.getLen());
+
+        System.out.println("testing deleting:::::");
+        arr1.push(7);
+        arr1.push(14);
+        arr1.push(21);
+        arr1.push(27);
+        System.out.println("length of the array = " + arr1.getLen());
+        arr1.delete(1);
+        System.out.println("length of the array = " + arr1.getLen());
+
+
 //        System.out.println(arr1.data);
 
         //System.out.println(arr1.get(0));
