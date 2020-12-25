@@ -86,6 +86,37 @@ public class dynamicArrays extends reverseString {
         len--;
 
     }
+    /** This method is used to insert an element into the passed index
+     * insert(int index, int value)
+     * @param index index of the inserted number into the array
+     * @param value the integer to be inserted into data[] at index
+     * @return  Nothing
+     */
+    public void insert(int index, int value){
+        //create a new temp array with length +1 than data
+        int[] temp = new int[this.getLen()+1];
+
+        //fill first part of the array temp[] before index
+        for(int i = 0; i < index; i++){
+            temp[i] = data[i];
+        }
+
+        //temp[index] = value
+        temp[index] = value;
+
+        //fill the second part of the array after index
+        for(int i = index + 1 ; i < this.getLen()+1; i++){
+            temp[i] = data[i];
+        }
+
+        //reference data to temp
+        data = temp;
+
+        //decrease length
+        len++;
+
+    }
+
 
 
     /**This method is used to print the elements of the array
@@ -145,6 +176,9 @@ public class dynamicArrays extends reverseString {
         arr1.delete(0);
         System.out.println("length of the array = " + arr1.getLen());
         arr1.printArray();
+
+        System.out.println("testing insertion:::::");
+
 
 
 
