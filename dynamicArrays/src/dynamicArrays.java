@@ -44,7 +44,8 @@ public class dynamicArrays extends reverseString {
     }
 
 
-    //pop() functions.. removes last element data[data.length - 1] and reduces len by -1
+    /** pop() functions.. removes last element data[data.length - 1] and reduces len by -1
+     */
     public void pop(){
         //create a new temp array with length -1 than data
         int[] temp = new int[this.getLen()-1];
@@ -106,7 +107,7 @@ public class dynamicArrays extends reverseString {
 
         //fill the second part of the array after index
         for(int i = index + 1 ; i < this.getLen()+1; i++){
-            temp[i] = data[i];
+            temp[i] = data[i-1];
         }
 
         //reference data to temp
@@ -137,9 +138,6 @@ public class dynamicArrays extends reverseString {
     public int getLen() {
         return len;
     }
-
-
-
 
 
     public static void main(String[] args){
@@ -177,16 +175,12 @@ public class dynamicArrays extends reverseString {
         System.out.println("length of the array = " + arr1.getLen());
         arr1.printArray();
 
+
         System.out.println("testing insertion:::::");
-
-
-
-
-//        System.out.println(arr1.data);
-
-        //System.out.println(arr1.get(0));
-
-
-
+        arr1.insert(1,2);
+        arr1.insert(3, 55);
+        arr1.insert(0, 11);
+        System.out.println("length of the array = " + arr1.getLen());
+        arr1.printArray();
     }
 }
