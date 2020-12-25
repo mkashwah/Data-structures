@@ -75,8 +75,8 @@ public class dynamicArrays extends reverseString {
         for(int i = 0; i < index; i++){
             temp[i] = data[i];
         }
-        for(int i = index + 1 ; i < this.getLen()-1; i++){
-            temp[i] = data[i];
+        for(int i = index + 1 ; i < this.getLen(); i++){
+            temp[i-1] = data[i];
         }
 
         //reference data to temp
@@ -94,7 +94,7 @@ public class dynamicArrays extends reverseString {
      */
     public void printArray(){
         String arry = "the elements of this array are {";
-        for (int i = 0; i<this.getLen()-1; i++){
+        for (int i = 0; i<this.getLen(); i++){
             arry += get(i) + " ";
         }
         arry += "}";
@@ -123,13 +123,14 @@ public class dynamicArrays extends reverseString {
 
         dynamicArrays arr1 = new dynamicArrays();
         arr1.push(10);
-        System.out.println(arr1.get(0));
         arr1.push(20);
-        System.out.println(arr1.get(1));
+        arr1.push(30);
         System.out.println("length of the array = " + arr1.getLen());
+        arr1.printArray();
         arr1.pop();
         arr1.pop();
         System.out.println("length of the array = " + arr1.getLen());
+        arr1.printArray();
 
         System.out.println("testing deleting:::::");
         arr1.push(7);
@@ -137,8 +138,14 @@ public class dynamicArrays extends reverseString {
         arr1.push(21);
         arr1.push(27);
         System.out.println("length of the array = " + arr1.getLen());
+        arr1.printArray();
         arr1.delete(1);
         System.out.println("length of the array = " + arr1.getLen());
+        arr1.printArray();
+        arr1.delete(0);
+        System.out.println("length of the array = " + arr1.getLen());
+        arr1.printArray();
+
 
 
 //        System.out.println(arr1.data);
