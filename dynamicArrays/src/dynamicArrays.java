@@ -10,21 +10,29 @@ public class dynamicArrays extends reverseString {
     //pop()
     //insert(int index, int value)
     //delete(int index)
-    //shiftItems(int index)
     //get(int index)
 
-    //constructor
+    /** Constructor: builds an array of integers called data[] with zero elements inside it
+     * and sets length for it in the variable len where len = 0
+     */
     public dynamicArrays(){
         len = 0;            //variable contains length of the array
         data = new int[0];     //new array with length of 0
     }
 
-    //get(int index)
+    /** This method returns the element with the passed index
+     *
+     * @param index index of the element
+     * @return  the element at the passed index
+     */
     public int get(int index){
         return this.data[index];
     }
 
-    //push(int value)
+    /** This method pushes an integer val into the end of the stack
+     *
+     * @param val integer to be pushed into the end of the stack
+     */
     public void push(int val){
         //create a new temp array with length +1 than data
         int[] temp = new int[this.getLen()+1];
@@ -134,7 +142,10 @@ public class dynamicArrays extends reverseString {
     }
 
 
-    //return length function
+    /** This method returns the length of the array
+     *
+     * @return length of the array; int len
+     */
     public int getLen() {
         return len;
     }
