@@ -193,5 +193,16 @@ public class dynamicArrays extends reverseString {
         arr1.insert(0, 11);
         System.out.println("length of the array = " + arr1.getLen());
         arr1.printArray();
+
+        /////Testing Merging and Sorting
+        int[] testArray1 = {1,2,3,4,5};
+        int[] testArray2 = {6,7,8,9,10};
+        mergeAndSort merger = new mergeAndSort();
+        merger.mergeAndSort(testArray1,testArray2);
+        System.out.println(Arrays.toString(merger.mergeAndSort(testArray1, testArray2)));
+
+
+
+
     }
 }
