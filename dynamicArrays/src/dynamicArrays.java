@@ -43,6 +43,13 @@ public class dynamicArrays extends reverseString {
         len++;
     }
 
+    //return length function
+
+
+    public int getLen() {
+        return len;
+    }
+
 
 
     public static void main(String[] args){
