@@ -67,7 +67,7 @@ public class dynamicArrays extends reverseString {
      * @param index the index of the deleted array element
      * @return Nothing
      */
-    public void delete (int index){
+    public void delete(int index){
         //create a new temp array with length -1 than data
         int[] temp = new int[this.getLen()-1];
 
@@ -88,10 +88,18 @@ public class dynamicArrays extends reverseString {
     }
 
 
-    /**
+    /**This method is used to print the elements of the array
      *
-     * @return
+     * @return A print statement with the elements of the array
      */
+    public void printArray(){
+        String arry = "the elements of this array are {";
+        for (int i = 0; i<this.getLen()-1; i++){
+            arry += get(i) + " ";
+        }
+        arry += "}";
+        System.out.println(arry);
+    }
 
 
     //return length function
