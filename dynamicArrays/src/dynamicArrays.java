@@ -27,14 +27,14 @@ public class dynamicArrays extends reverseString {
     //push(int value)
     public void push(int val){
         //create a new temp array with length +1 than data
-        int[] temp = new int[data.length+1];
+        int[] temp = new int[this.getLen()+1];
 
         //copy all elements into a temporary array (because arrays are immutable in java)
-        for(int i = 0; i < data.length; i++){
+        for(int i = 0; i < this.getLen(); i++){
             temp[i]= data[i];
         }
         //push val to the end of the new block in the temp array
-        temp[data.length] = val;
+        temp[this.getLen()] = val;
 
         //change reference of data array to temp
         data = temp;
@@ -43,12 +43,33 @@ public class dynamicArrays extends reverseString {
         len++;
     }
 
+
+    //pop() functions.. removes last element data[data.length - 1] and reduces len by -1
+    public void pop(){
+        //create a new temp array with length -1 than data
+        int[] temp = new int[this.getLen()-1];
+        int itemPopped = data[this.getLen() - 1];
+        //copy all elements into a temporary array (because arrays are immutable in java) not including the last element
+        for(int i = 0; i < this.getLen()-1; i++){
+            temp[i]= data[i];
+        }
+
+        //print statement for the popped item
+        System.out.println("item of index " + (this.getLen()-1) +" = " + get(this.getLen()-1) + " was popped");
+
+        //change reference of data array to the new temp array
+        data = temp;
+
+        //decrease length
+        len--;
+    }
+
     //return length function
-
-
     public int getLen() {
         return len;
     }
+
+
 
 
 
@@ -67,7 +88,10 @@ public class dynamicArrays extends reverseString {
         System.out.println(arr1.get(0));
         arr1.push(20);
         System.out.println(arr1.get(1));
-        System.out.println("length of the array = " + arr1.len);
+        System.out.println("length of the array = " + arr1.getLen());
+        arr1.pop();
+        arr1.pop();
+        System.out.println("length of the array = " + arr1.getLen());
 //        System.out.println(arr1.data);
 
         //System.out.println(arr1.get(0));
