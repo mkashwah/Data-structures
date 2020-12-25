@@ -15,9 +15,8 @@ public class dynamicArrays extends reverseString {
 
     //constructor
     public dynamicArrays(){
-        len = 0;
-        data = new int[0];
-        System.out.println("array created");
+        len = 0;            //variable contains length of the array
+        data = new int[0];     //new array with length of 0
     }
 
     //get(int index)
@@ -27,12 +26,20 @@ public class dynamicArrays extends reverseString {
 
     //push(int value)
     public void push(int val){
+        //create a new temp array with length +1 than data
         int[] temp = new int[data.length+1];
-        for(int i = 0; i <= data.length; i++){
+
+        //copy all elements into a temporary array (because arrays are immutable in java)
+        for(int i = 0; i < data.length; i++){
             temp[i]= data[i];
         }
-        temp[data.length + 1] = val;
+        //push val to the end of the new block in the temp array
+        temp[data.length] = val;
+
+        //change reference of data array to temp
         data = temp;
+
+        //increase length
         len++;
     }
 
@@ -49,10 +56,12 @@ public class dynamicArrays extends reverseString {
 
 
         dynamicArrays arr1 = new dynamicArrays();
-        System.out.println(arr1.data.length);
+        arr1.push(10);
+        System.out.println(arr1.get(0));
+        arr1.push(20);
+        System.out.println(arr1.get(1));
+        System.out.println("length of the array = " + arr1.len);
 //        System.out.println(arr1.data);
-        //arr1.push(5);
-
 
         //System.out.println(arr1.get(0));
 
