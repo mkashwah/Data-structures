@@ -22,7 +22,6 @@ public class mergeAndSort {
             int[] merged = new int[array1.length + array2.length];
 
             //fill out int merged[] with array1[] and array2[]
-
             for(int i = 0; i< array1.length; i++){
                 merged[i] = array1[i];
             }
@@ -30,23 +29,21 @@ public class mergeAndSort {
                 merged[i] = array2[i - array1.length];
             }
 
+            int tempInt;
 
-            //create a temp[] array with the size of merged[]
-            int[] temp = new int[merged.length];
-
-            //final int[] array merged and sorted
-            int[] mergedAndSorted = new int[array1.length + array2.length];
-
+            //Sorting algorithm
+            for (int i = 0; i < merged.length; i++){
+                for (int j = 0; j < i; j++){
+                    if (merged[i] <= merged[j]){
+                        tempInt = merged[j];
+                        merged[j] = merged[i];
+                        merged[i] = tempInt;
+                    }
+                }
+            }
             mergedArray = merged;
-
-
-
-
-
         }
 
         return mergedArray;
-
-
     }
 }

@@ -195,8 +195,9 @@ public class dynamicArrays extends reverseString {
         arr1.printArray();
 
         /////Testing Merging and Sorting
-        int[] testArray1 = {1,2,3,4,5};
-        int[] testArray2 = {6,7,8,9,10};
+        System.out.println("Testing merging and sorting:::::::");
+        int[] testArray1 = {5,10,-2,1,0,100};
+        int[] testArray2 = {-20,10,30,0};
         mergeAndSort merger = new mergeAndSort();
         merger.mergeAndSort(testArray1,testArray2);
         System.out.println(Arrays.toString(merger.mergeAndSort(testArray1, testArray2)));
