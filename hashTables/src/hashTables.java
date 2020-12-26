@@ -49,6 +49,30 @@ public class hashTables {
         phoneBook[tableAddress].add(entry);
     }
 
+    /** This method returns the number associated with the passed passed name
+     *
+     * @param name Name to be looked up
+     * @return number associated with name
+     */
+    private int get(String name){
+        int number;
+        int tableAddress = hash(name);
+
+        if (phoneBook[tableAddress] == null){
+            System.out.println("Entry does not exist");
+            return (-1);
+        }
+        for (int i = 0; i < phoneBook[tableAddress].size(); i++){
+            if (name == phoneBook[tableAddress].get(i).getName()){
+                number = phoneBook[tableAddress].get(i).getNumber();
+                return number;
+            }
+
+        }
+        return 1;
+    }
+
+
 
 
     public static void main(String[] args) {
