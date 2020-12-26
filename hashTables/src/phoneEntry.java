@@ -7,4 +7,8 @@ public class phoneEntry {
         this.name = name;
         this.number = number;
     }
+
+    public String getName(){
+        return name;
+    }
 }
