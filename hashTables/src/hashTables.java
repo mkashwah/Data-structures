@@ -65,6 +65,8 @@ public class hashTables {
             System.out.println("Entry does not exist");
             return (-1);
         }
+
+        //in the case if there's collision this loop solves it
         for (int i = 0; i < phoneBook[tableAddress].size(); i++){
             if (name == phoneBook[tableAddress].get(i).getName()){
                 number = phoneBook[tableAddress].get(i).getNumber();
@@ -121,6 +123,24 @@ public class hashTables {
 
         //there's an issue with the length of the number once it hits 10 digits.. to be investigate later
         //for now this issue can be fixed by adding another parameter to phoneEntry() objects to contain the extra digits
+
+        //testing firstRecurringCharacter
+        System.out.println("\nTesting firstRecurringCharacter");
+        int[] array1 = {0,4,3,5,2,4,3,1,0};
+        int[] array2 = {0,3,4,3,2,4,3,1,0};
+        int[] array3 = {9,1,2,3,4,5,6,7,8};
+
+        firstRecurringCharacter frc1 = new firstRecurringCharacter();
+        System.out.println("\nrecurring in array 1: "+ frc1.firstRecurring(array1));
+
+        firstRecurringCharacter frc2 = new firstRecurringCharacter();
+        System.out.println("\nrecurring in array 2: "+ frc2.firstRecurring(array2));
+
+        firstRecurringCharacter frc3 = new firstRecurringCharacter();
+        System.out.println("\nrecurring in array 3: "+ frc3.firstRecurring(array3));
+
+
+
 
 
     }
