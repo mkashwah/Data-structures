@@ -76,6 +76,25 @@ public class hashTables {
 
 
     public static void main(String[] args) {
-       
+       //testing hashTable
+        hashTables phoneBook = new hashTables(10);
+        phoneBook.set("Joe", 647111111); //hashcode = 3
+        phoneBook.set("Doe", 647222222);    //hashcode = 3
+        phoneBook.set("Kashwah", 647333333); //hashcode = 4
+        phoneBook.set("Peter", 647444444); //hashcode = 2
+        phoneBook.set("Griffin", 647555555); //hashcode = 3
+        phoneBook.set("Rick", 647666666); //hashcode = 4
+        phoneBook.set("Sanchez", 647777777); //hashcode = 7
+
+        //testing get(String name)
+        System.out.println(phoneBook.get("Doe"));
+        System.out.println(phoneBook.get("Kashwah"));
+        System.out.println(phoneBook.get("Sanchez"));
+        System.out.println(phoneBook.get("Morty"));
+
+        //there's an issue with the length of the number once it hits 10 digits.. to be investigate later
+        //for now this issue can be fixed by adding another parameter to phoneEntry() objects to contain the extra digits
+
+
     }
 }
