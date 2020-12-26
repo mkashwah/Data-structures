@@ -138,10 +138,6 @@ public class hashTables {
 
         firstRecurringCharacter frc3 = new firstRecurringCharacter();
         System.out.println("\nrecurring in array 3: "+ frc3.firstRecurring(array3));
-
-
-
-
-
+        
     }
 }
