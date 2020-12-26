@@ -8,7 +8,7 @@ public class hashTables {
     //the size of this array is equal to the size of the hash table as each hash is connected to an arraylist that contain
     //phoneEntry objects
     private ArrayList<phoneEntry>[] phoneBook;
-
+    private static int totalEnteries = 0;
 
     public hashTables(int size){
         phoneBook = new ArrayList[size];
@@ -47,6 +47,9 @@ public class hashTables {
 
         //add the created phone entry to the adjacent arraylist
         phoneBook[tableAddress].add(entry);
+
+        //increase totalEnteries tally
+        totalEnteries++;
     }
 
     /** This method returns the number associated with the passed passed name
@@ -72,6 +75,25 @@ public class hashTables {
         return 1;
     }
 
+    /** This method loops through only occupied hashTable buckets (!= null) and returns all the keys ('names') of the hashtable.
+     *
+     * @return Array of Strings containing all the keys ('names') of the hashtable
+     */
+    public String[] names(){
+        String[] allEnteries = new String[totalEnteries];
+        int index = 0;
+        for(int i = 0; i < phoneBook.length; i++){
+            if(phoneBook[i] != null){
+                for(int n = 0; n < phoneBook[i].size(); n++){
+                    System.out.println("Name: " + phoneBook[i].get(n).getName());
+                    allEnteries[index] = phoneBook[i].get(n).getName();
+                }
+            }
+
+        }
+        return allEnteries;
+    }
+
 
 
 
@@ -90,7 +112,12 @@ public class hashTables {
         System.out.println(phoneBook.get("Doe"));
         System.out.println(phoneBook.get("Kashwah"));
         System.out.println(phoneBook.get("Sanchez"));
-        System.out.println(phoneBook.get("Morty"));
+        System.out.println(phoneBook.get("Morty")); //this entry does not exist and will return -1
+
+
+        //testing names
+        System.out.println("Testing names() \n");
+        phoneBook.names();
 
         //there's an issue with the length of the number once it hits 10 digits.. to be investigate later
         //for now this issue can be fixed by adding another parameter to phoneEntry() objects to contain the extra digits
