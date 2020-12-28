@@ -30,6 +30,22 @@ public class linkedList {
         len++;
     }
 
+    /** This methods prepends a node to the linked list
+     *
+     * @param node node object to prepend to the linked list
+     */
+    public void prepend(node node){
+        if (isAtHead == true){      //the case that this is the first node
+            nodesRef.add(node);
+            isAtHead = false;
+        } else {
+            node.setNextNode(nodesRef.get(0));      //next node of the prependded node to be set to the head node
+            nodesRef.add(0, node);            //change the reference of the head node in the array list
+        }
+        len++;
+
+    }
+
     /** returns the length of the linked list
      * @return length of the linked list
      */

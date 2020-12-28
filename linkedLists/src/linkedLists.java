@@ -10,12 +10,20 @@ public class linkedLists {
         node node2 = new node(4);
         node node3 = new node(8);
         node node4 = new node(10);
+        node node0 = new node(0);
+        node node_1 = new node(-2);
+        node node_2 = new node(-4);
 
         //appending the nodes into the linked list
         list1.append(node1);
-        list1.append(node1);
-        list1.append(node1);
-        list1.append(node1);
+        list1.append(node2);
+        list1.append(node3);
+        list1.append(node4);
+
+        //prepending the nodes to the linked list
+        list1.prepend(node0);
+        list1.prepend(node_1);
+        list1.prepend(node_2);
 
         //length of the linked list;
         System.out.println("test the first linked list " + list1.getLen());
