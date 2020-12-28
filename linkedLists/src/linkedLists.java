@@ -35,6 +35,10 @@ public class linkedLists {
         list2.append(6);
         list2.append(8);
 
+        list2.prepend(0);
+        list2.prepend(-2);
+        list2.prepend(-4);
+
         System.out.println("\ntest second linked list " + list2.getLen());
 
     }

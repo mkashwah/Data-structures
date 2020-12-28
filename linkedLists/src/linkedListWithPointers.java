@@ -25,10 +25,23 @@ public class linkedListWithPointers {
      */
     public void append(int value){
         this.theNode = new node(value);     //create node reference
-        tail.setNextNode(theNode);  //set the next node to the current node
-        tail = theNode;     //make tail refer to the current node now
-        len++;
+        tail.setNextNode(theNode);          //set the next node to the current node
+        tail = theNode;                     //change pointer of tail to the new node
+        len++;                              //length + 1
     }
+
+    /**
+     * This methods prepends a node to the linked list
+     * @param value Integer value of the node to be created then prepended
+     */
+    public void prepend(int value){
+        this.theNode = new node(value);     //create node reference
+        theNode.setNextNode(head);          //make head node be referred to as the new node's next node
+        head = theNode;                     //change pointer of head to the new node
+        len++;                              //length + 1
+    }
+
+
 
     /** returns the length of the linked list
      *
