@@ -1,0 +1,5 @@
+public class linkedLists {
+    public static void main(String[] args) {
+        System.out.println("Hello!!");
+    }
+}
