@@ -16,7 +16,26 @@ public class node {
 
     }
 
+    /**Polymorphic constructor that doesn't require value
+     *
+     */
+    public node(){
+        this.nextNode = null;
+    }
+
+    /** This method sets the next node of a node object
+     *
+     * @param nextNode node object
+     */
     public void setNextNode(node nextNode) {
         this.nextNode = nextNode;
+    }
+
+    /** This method sets the value in a node object
+     *
+     * @param value integer value
+     */
+    public void setValue(int value) {
+        this.value = value;
     }
 }

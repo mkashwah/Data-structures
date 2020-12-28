@@ -18,7 +18,16 @@ public class linkedLists {
         list1.append(node1);
 
         //length of the linked list;
-        System.out.println(list1.getLen());
+        System.out.println("test the first linked list " + list1.getLen());
+
+
+        //test linkedListWithPointers
+        linkedListWithPointers list2 = new linkedListWithPointers(2);
+        list2.append(4);
+        list2.append(6);
+        list2.append(8);
+
+        System.out.println("\ntest second linked list " + list2.getLen());
 
     }
 }
