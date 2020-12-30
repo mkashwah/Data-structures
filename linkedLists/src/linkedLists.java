@@ -99,6 +99,10 @@ public class linkedLists {
         System.out.println(list2.getLen());
 
 
+        
+//        //testing foolproofing of remove()
+//        list2.remove(list2.getTailAt()+1);      //trying to remove past the tail
+
 //        //testing foolproofing of insert()
 //        list2.insert(list2.getLen()+1, 1000);     //the program successfully shuts down after when encountered with index out of bound
 //        System.out.println(list2.getLen());
