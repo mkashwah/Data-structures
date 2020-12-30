@@ -38,4 +38,12 @@ public class node {
     public void setValue(int value) {
         this.value = value;
     }
+
+    /** This methods returns next node
+     *
+     * @return nextNode
+     */
+    public node getNextNode() {
+        return nextNode;
+    }
 }

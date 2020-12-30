@@ -41,17 +41,26 @@ public class linkedListWithPointers {
         len++;                              //length + 1
     }
 
+    /** This method helps insert(index, value) traversing through the linked list
+     * @param index index for insert(index, value)
+     * @return preAft array with the nodes' references surrounding the inserted new node
+     */
     public node[] traversePreAft(int index){
         node[] preAft = new node[2];        //holds references of the nodes around the newly inserted nodes
+        node currentNode = head;            //setting current node to refer to first node
         int i = 0;
-        while( i <= index){
-            preAft[0] = 
+
+        //traversing loop
+        while( i < index){
+            preAft[0] = currentNode;
+            preAft[1] = currentNode.getNextNode();
+            currentNode = currentNode.getNextNode();    //traverse the pointer
+            i++;
         }
-
-
-
         return preAft;
     }
+
+    
 
 
 
