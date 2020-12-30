@@ -69,7 +69,7 @@ public class linkedListWithPointers {
         node newNode = new node(value);
 
         if (index > this.len || index < 0){
-            System.out.println("Insertion failed. Index out of boundary. Exiting to System");
+            System.out.println("insert(int index, int value) failed. Index out of bound. Exiting to System");
             System.exit(-1);
         } else if(index == this.len){
             append(value);
@@ -80,6 +80,27 @@ public class linkedListWithPointers {
             preAft[0].setNextNode(newNode);         //set the newNode as the nextNode for the node(i-1)
             newNode.setNextNode(preAft[1]);         //set the nextNode for newNode to node(i+1) --previously node(i)
             len++;
+        }
+
+    }
+
+    /**
+     * This method removes a node at index int index
+     * @param index index of the node to be removed
+     */
+    public void remove(int index){
+
+        //if statement to check the validity of the passed int index
+        if (index < 0 || index > this.getLen()){
+            System.out.println("remove(int index) failed. Index out of bound. Exiting to System ");
+            System.exit(-2);
+        } else {
+            node[] preAft = traversePreAft(index);              //retrieve the references of the node to be deleted and its predecessor
+            preAft[0].setNextNode(preAft[1].getNextNode());     //step over the deleted node. node[0].next = next node of the deleted one
+            preAft[1] = null;                                   //nullify the deleted node for garbage collector
+            len--;
+            System.gc();                                        //call JVM garbage collector
+            System.runFinalization();
         }
 
     }
