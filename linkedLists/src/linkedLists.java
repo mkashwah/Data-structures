@@ -96,10 +96,17 @@ public class linkedLists {
         list2.remove(0);                   //deleting the head
         list2.remove(list2.getTailAt());           //deleting the tail
         list2.printList();
-        System.out.println(list2.getLen());
 
 
-        
+        //testing reverse
+        System.out.println("testing reverse");
+        list2.reverse();
+        list2.printList();
+
+       
+
+
+
 //        //testing foolproofing of remove()
 //        list2.remove(list2.getTailAt()+1);      //trying to remove past the tail
 

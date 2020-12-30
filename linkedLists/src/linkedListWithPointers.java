@@ -1,4 +1,4 @@
-/** This class implements linked list with more use of pointers
+/** This class implements singly linked list with more use of pointers
  * @author M. Kashwah
  */
 
@@ -142,6 +142,30 @@ public class linkedListWithPointers {
         System.out.println(printedList.substring(0,printedList.length()-5));    //prints the string without extra "-->" at the end
     }
 
+    //create a method which reverses the original linkedlist
+    //going to reverse all the nodes connection (.nextNode) of the linked list
+    //call the old head --> tail & the old tail --> head
+    //make an array that will contain the reference to each node in order
+
+    public void reverse(){
+        node[] allNodes = new node[this.getLen()];
+        node currentNode = head;
+
+        //fill this array with the references by traversing through the list
+       for(int i = 0; i <= this.getTailAt(); i++){
+           allNodes[i] = currentNode;
+           currentNode = currentNode.getNextNode();
+       }
+       for (int i = this.getTailAt(); i > 0; i--){
+           allNodes[i].setNextNode(allNodes[i-1]);
+       }
+       head = allNodes[getTailAt()];
+       tail = allNodes[0];
+      tail.setNextNode(null);
+
+
+    }
+
 
 
     /** returns the length of the linked list
@@ -152,14 +176,6 @@ public class linkedListWithPointers {
         return len;
     }
 
-    /**
-     * This method returns the length of the linked list counting from 1
-     * useful in printing the size the linked list in a print statement
-     * @return length of the linked list
-     */
-    public int getLength(){
-        return len+1;
-    }
 
     public int getTailAt() {
         return tailAt;
