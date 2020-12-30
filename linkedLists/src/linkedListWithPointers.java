@@ -41,6 +41,18 @@ public class linkedListWithPointers {
         len++;                              //length + 1
     }
 
+    public node[] traversePreAft(int index){
+        node[] preAft = new node[2];        //holds references of the nodes around the newly inserted nodes
+        int i = 0;
+        while( i <= index){
+            preAft[0] = 
+        }
+
+
+
+        return preAft;
+    }
+
 
 
     /** returns the length of the linked list
