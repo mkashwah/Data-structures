@@ -60,6 +60,11 @@ public class linkedListWithPointers {
         return preAft;
     }
 
+    /**
+     * This method inserts a new node at index int index and has a value of int value
+     * @param index index of the inserted node
+     * @param value value of the inserted node
+     */
     public void insert(int index, int value){
         node newNode = new node(value);
 
@@ -74,8 +79,24 @@ public class linkedListWithPointers {
             node[] preAft = traversePreAft(index);  //get the two nodes surrounding newNode
             preAft[0].setNextNode(newNode);         //set the newNode as the nextNode for the node(i-1)
             newNode.setNextNode(preAft[1]);         //set the nextNode for newNode to node(i+1) --previously node(i)
-
         }
+        len++;
+    }
+
+    /**
+     * This method prints out the full list
+     */
+    public void printList(){
+        String printedList = new String();
+        node currentNode = head;
+
+        //traversing loop
+        while(currentNode != null){
+            printedList += " " + currentNode.getValue() + " --> ";
+            currentNode = currentNode.getNextNode();    //move currentNode pointer to next node
+        }
+
+        System.out.println(printedList.substring(0,printedList.length()-5));    //prints the string without extra "-->" at the end
     }
 
 

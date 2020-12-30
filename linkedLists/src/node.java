@@ -46,4 +46,12 @@ public class node {
     public node getNextNode() {
         return nextNode;
     }
+
+    /**
+     * This method returns the value of the node as an integer
+     * @return value of the node
+     */
+    public int getValue() {
+        return value;
+    }
 }
