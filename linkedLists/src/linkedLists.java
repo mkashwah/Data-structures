@@ -74,23 +74,35 @@ public class linkedLists {
         list2.append(8);
 
         list2.printList();
+        System.out.println(list2.getLen());
 
         list2.prepend(0);
         list2.prepend(-2);
         list2.prepend(-4);
 
         list2.printList();
+        System.out.println(list2.getLen());
 
         list2.insert(3, 20);        //inserting at index 3
         list2.insert(0,-20);        //inserting at the head
         list2.insert(list2.getLen(), 222);      //inserting at the tail
         list2.printList();
-
-
-        //testing foolproofing of insert()
-        list2.insert(list2.getLen()+1, 1000);     //the program successfully shuts down after when encountered with index out of bound
         System.out.println(list2.getLen());
+
+        //testing remove(int index)
+        System.out.println("testing remove(int index)");
+        list2.remove(2);                   //deleting at index 2
+        list2.remove(0);                   //deleting the head
+        list2.remove(0);                   //deleting the head
+        list2.remove(list2.getTailAt());           //deleting the tail
         list2.printList();
+        System.out.println(list2.getLen());
+
+
+//        //testing foolproofing of insert()
+//        list2.insert(list2.getLen()+1, 1000);     //the program successfully shuts down after when encountered with index out of bound
+//        System.out.println(list2.getLen());
+//        list2.printList();
 
 
 

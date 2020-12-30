@@ -8,7 +8,7 @@ public class linkedListWithPointers {
     private node head;      //head node
     private node tail;      //tail node
     private int len = 0;    //length of the list
-
+    private int tailAt = 0; //this variable stores length of the list - 1 (where the tail is relative to the head)
     /**
      * Default constructor. Sets up the first node , head ,
      * @param value sets the value of the first node
@@ -28,6 +28,7 @@ public class linkedListWithPointers {
         tail.setNextNode(theNode);          //set the next node to the current node
         tail = theNode;                     //change pointer of tail to the new node
         len++;                              //length + 1
+        tailAt++;
     }
 
     /**
@@ -39,13 +40,14 @@ public class linkedListWithPointers {
         theNode.setNextNode(head);          //make head node be referred to as the new node's next node
         head = theNode;                     //change pointer of head to the new node
         len++;                              //length + 1
+        tailAt++;
     }
 
     /** This method helps insert(index, value) traversing through the linked list
      * @param index index for insert(index, value)
      * @return preAft array with the nodes' references surrounding the inserted new node
      */
-    public node[] traversePreAft(int index){
+    private node[] traversePreAft(int index){
         node[] preAft = new node[2];        //holds references of the nodes around the newly inserted nodes
         node currentNode = head;            //setting current node to refer to first node
         int i = 0;
@@ -80,6 +82,7 @@ public class linkedListWithPointers {
             preAft[0].setNextNode(newNode);         //set the newNode as the nextNode for the node(i-1)
             newNode.setNextNode(preAft[1]);         //set the nextNode for newNode to node(i+1) --previously node(i)
             len++;
+            tailAt++;
         }
 
     }
@@ -91,14 +94,32 @@ public class linkedListWithPointers {
     public void remove(int index){
 
         //if statement to check the validity of the passed int index
-        if (index < 0 || index > this.getLen()){
+        if (index < 0 || index > tailAt){
             System.out.println("remove(int index) failed. Index out of bound. Exiting to System ");
             System.exit(-2);
-        } else {
+        } else if(index == 0){
+            node newHead = head.getNextNode();
+            head = newHead;
+            len--;
+            tailAt--;
+        } else if(index == tailAt){
+            node[] preAft = traversePreAft(index);
+            tail = preAft[0];
+            tail.setNextNode(null);
+            preAft[1] = null;
+            len--;
+            tailAt--;
+            System.gc();                                        //call JVM garbage collector
+            System.runFinalization();
+
+        }
+
+        else {
             node[] preAft = traversePreAft(index);              //retrieve the references of the node to be deleted and its predecessor
             preAft[0].setNextNode(preAft[1].getNextNode());     //step over the deleted node. node[0].next = next node of the deleted one
             preAft[1] = null;                                   //nullify the deleted node for garbage collector
             len--;
+            tailAt--;
             System.gc();                                        //call JVM garbage collector
             System.runFinalization();
         }
@@ -124,10 +145,23 @@ public class linkedListWithPointers {
 
 
     /** returns the length of the linked list
-     *
+     *  counting from 0
      * @return length of the linked list
      */
     public int getLen() {
         return len;
+    }
+
+    /**
+     * This method returns the length of the linked list counting from 1
+     * useful in printing the size the linked list in a print statement
+     * @return length of the linked list
+     */
+    public int getLength(){
+        return len+1;
+    }
+
+    public int getTailAt() {
+        return tailAt;
     }
 }
