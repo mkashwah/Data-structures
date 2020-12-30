@@ -68,8 +68,8 @@ public class linkedListWithPointers {
     public void insert(int index, int value){
         node newNode = new node(value);
 
-        if (index > this.len && index < 0){
-            System.out.println("Out of boundary. Exiting to System");
+        if (index > this.len || index < 0){
+            System.out.println("Insertion failed. Index out of boundary. Exiting to System");
             System.exit(-1);
         } else if(index == this.len){
             append(value);
@@ -79,8 +79,9 @@ public class linkedListWithPointers {
             node[] preAft = traversePreAft(index);  //get the two nodes surrounding newNode
             preAft[0].setNextNode(newNode);         //set the newNode as the nextNode for the node(i-1)
             newNode.setNextNode(preAft[1]);         //set the nextNode for newNode to node(i+1) --previously node(i)
+            len++;
         }
-        len++;
+
     }
 
     /**
